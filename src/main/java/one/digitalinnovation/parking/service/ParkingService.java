@@ -13,12 +13,15 @@ public class ParkingService {
 
     static {
         var id = getUUID();
+        var id1 = getUUID();
         Parking parking = new Parking(id, "DMS-1111", "SC", "CELTA", "PRETO");
+        Parking parking1 = new Parking(id1, "WAS-1234", "SP", "VW GOL", "VERMELHO");
         parkingMap.put(id, parking);
+        parkingMap.put(id1, parking1);
     }
 
 public List<Parking> findAll(){
-        return parkingMap.values().stream().collect(Collectors.toList());
+        return new ArrayList<>(parkingMap.values());
 }
 
     private static String getUUID() {
@@ -26,4 +29,7 @@ public List<Parking> findAll(){
     }
 
 
+    public Parking findById(String id) {
+        return parkingMap.get(id);
+    }
 }
