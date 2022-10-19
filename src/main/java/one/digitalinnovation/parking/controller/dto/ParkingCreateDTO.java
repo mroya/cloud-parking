@@ -14,6 +14,10 @@ public class ParkingCreateDTO {
         this.color = color;
     }
 
+    public ParkingCreateDTO() {
+
+    }
+
     public String getLicense() {
         return license;
     }

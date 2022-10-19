@@ -6,24 +6,16 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ParkingService {
 
     private static final Map<String, Parking> parkingMap = new HashMap();
 
-    static {
-        var id = getUUID();
-        var id1 = getUUID();
-        Parking parking = new Parking(id, "DMS-1111", "SC", "CELTA", "PRETO");
-        Parking parking1 = new Parking(id1, "WAS-1234", "SP", "VW GOL", "VERMELHO");
-        parkingMap.put(id, parking);
-        parkingMap.put(id1, parking1);
+    public List<Parking> findAll(){
+        return parkingMap.values().stream().collect(Collectors.toList());
     }
-
-public List<Parking> findAll(){
-        return new ArrayList<>(parkingMap.values());
-}
 
     private static String getUUID() {
         return UUID.randomUUID().toString().replace("-", "");
@@ -56,5 +48,12 @@ public List<Parking> findAll(){
         parking.setColor(parkingCreate.getColor());
         parkingMap.replace(id, parking);
         return parking;
+    }
+
+    public Parking exit(String id) {
+        //recuperar o estacionado
+        //atualizar data de saída
+        //calcular o valor
+        return null;
     }
 }
