@@ -1,4 +1,4 @@
-package one.digitalinnovation.parking;
+package one.digitalinnovation.parking.controller;
 
 import io.restassured.RestAssured;
 import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ParkingControllerIT {
+class ParkingControllerIT extends AbstractContainerBase {
 
     @LocalServerPort
     private int randomPort;
